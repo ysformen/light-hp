@@ -1,0 +1,150 @@
+---
+const faqs = [
+  {
+    q: '深夜や休日でも連絡できますか？',
+    a: 'はい、24時間365日対応しております。夜間・深夜・休日を問わず、いつでもお電話ください。ご逝去直後のご連絡にも迅速に対応いたします。',
+  },
+  {
+    q: '事前に相談することはできますか？',
+    a: 'もちろんです。生前のご相談を大切にしております。費用・プラン・式場など、気になることはどんなことでもお気軽にご相談ください。事前相談は無料です。',
+  },
+  {
+    q: '公営斎場を使うと費用は安くなりますか？',
+    a: '公営斎場は民間斎場に比べて使用料がリーズナブルです。同じ品質の葬儀を、費用を抑えてご提供できることが私どもの強みの一つです。',
+  },
+  {
+    q: '宗教・宗派の指定はできますか？',
+    a: 'はい、対応可能です。仏教（各宗派）・神道・キリスト教など、ご希望の宗教・宗派に合わせた葬儀をお手伝いします。無宗教式にも対応いたします。',
+  },
+  {
+    q: '葬儀後の手続きもサポートしてもらえますか？',
+    a: '四十九日法要・納骨のご案内、各種行政手続き（死亡届・年金等）についてもご相談いただけます。お困りのことがあればいつでもお声がけください。',
+  },
+  {
+    q: '分割払いはできますか？',
+    a: '各種クレジットカードおよびローンに対応しております。費用面でご不安がある場合もまずはご相談ください。お支払い方法について丁寧にご説明いたします。',
+  },
+];
+---
+
+<section class="faq" id="faq">
+  <div class="inner">
+    <p class="section-subtitle">FAQ</p>
+    <h2 class="section-title">よくある質問</h2>
+    <div class="section-divider"></div>
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span class="faq-q-icon">Q</span>
+            <span class="faq-q-text">{f.q}</span>
+            <span class="faq-arrow">▾</span>
+          </summary>
+          <div class="faq-a">
+            <span class="faq-a-icon">A</span>
+            <p>{f.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: 6rem 1.5rem;
+    background: var(--color-cream);
+  }
+
+  .inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-q {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-q::-webkit-details-marker { display: none; }
+
+  .faq-q-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .faq-q-text {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .faq-arrow {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-a {
+    display: flex;
+    gap: 1rem;
+    padding: 0 0 1.5rem;
+    align-items: flex-start;
+  }
+
+  .faq-a-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .faq-a p {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+    padding-top: 0.2rem;
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+const reviews = [
+  {
+    name: 'S.M 様',
+    area: '藤枝市',
+    plan: '家族葬',
+    rating: 5,
+    text: '突然のことで何もわからない状態でしたが、担当の方が深夜でも丁寧に対応してくださいました。式の内容から費用まで、一つひとつ丁寧に説明していただき安心してお任せできました。父も喜んでいると思います。',
+  },
+  {
+    name: 'T.K 様',
+    area: '焼津市',
+    plan: '一般葬',
+    rating: 5,
+    text: '公営斎場を使ったにもかかわらず、とても上品で温かみのある式を執り行っていただきました。多くの参列者の方々からも「素晴らしい式だった」とのお言葉をいただきました。',
+  },
+  {
+    name: 'Y.N 様',
+    area: '藤枝市',
+    plan: '直葬',
+    rating: 5,
+    text: '家族だけで静かに見送りたいという希望を丁寧に聞いていただき、直葬をお願いしました。必要なことはすべてサポートしていただき、故人も穏やかに旅立つことができたと思います。',
+  },
+];
+---
+
+<section class="reviews" id="reviews">
+  <div class="inner">
+    <p class="section-subtitle">REVIEWS</p>
+    <h2 class="section-title">お客様の声</h2>
+    <div class="section-divider"></div>
+    <div class="reviews-grid">
+      {reviews.map(r => (
+        <div class="review-card">
+          <div class="review-header">
+            <div>
+              <p class="review-name">{r.name}</p>
+              <p class="review-meta">{r.area}・{r.plan}</p>
+            </div>
+            <div class="review-stars">
+              {'★'.repeat(r.rating)}
+            </div>
+          </div>
+          <p class="review-text">「{r.text}」</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews {
+    padding: 6rem 1.5rem;
+    background: var(--color-bg-warm);
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .review-card {
+    background: #fff;
+    padding: 2rem;
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+  }
+
+  .review-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .review-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .review-stars {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  .review-text {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 2;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .reviews-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+  }
+</style>

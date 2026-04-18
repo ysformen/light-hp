@@ -1,0 +1,203 @@
+---
+const navLinks = [
+  { href: '#reasons', label: '選ばれる理由' },
+  { href: '#venues', label: '式場案内' },
+  { href: '#plans', label: 'プラン' },
+  { href: '#flow', label: 'ご葬儀の流れ' },
+  { href: '#pricing', label: '料金' },
+  { href: '#faq', label: 'よくある質問' },
+  { href: '#contact', label: 'お問い合わせ' },
+];
+---
+
+<header id="site-header">
+  <div class="inner">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" alt="市民葬のらいと" class="logo-img" />
+    </a>
+    <nav class="nav-desktop">
+      {navLinks.map(link => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+    <a href="tel:050-8895-3811" class="tel-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 10.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.62 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.6a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      無料相談
+    </a>
+    <button class="menu-btn" id="menu-toggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="mobile-nav">
+    {navLinks.map(link => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+    <a href="tel:050-8895-3811" class="mobile-tel">無料相談：050-8895-3811</a>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+
+  toggle?.addEventListener('click', () => {
+    mobileNav?.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+
+  mobileNav?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      toggle?.classList.remove('active');
+    });
+  });
+</script>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+
+  header.scrolled {
+    background: var(--color-primary-dark);
+    box-shadow: 0 2px 20px rgba(46, 96, 112, 0.25);
+  }
+
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  .logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.3));
+  }
+
+  .nav-desktop {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-desktop a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-desktop a:hover {
+    opacity: 1;
+    color: var(--color-accent-light);
+  }
+
+  .tel-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .tel-btn:hover {
+    background: var(--color-accent-light);
+  }
+
+  .menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn.active span:nth-child(2) { opacity: 0; }
+  .menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    background: var(--color-primary-dark);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-mobile.open {
+    max-height: 500px;
+  }
+
+  .nav-mobile a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    letter-spacing: 0.05em;
+  }
+
+  .mobile-tel {
+    background: var(--color-accent);
+    color: #fff !important;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: none !important;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop { display: none; }
+    .tel-btn { display: none; }
+    .menu-btn { display: flex; }
+    .nav-mobile { display: flex; }
+  }
+</style>

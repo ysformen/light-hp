@@ -1,0 +1,142 @@
+---
+const steps = [
+  {
+    step: '01',
+    title: 'ご連絡・ご相談',
+    time: '24時間対応',
+    desc: 'まずはお電話またはメールにてご連絡ください。経験豊富な担当者が丁寧にご事情をお伺いし、最適なプランをご提案します。',
+  },
+  {
+    step: '02',
+    title: 'ご搬送・ご安置',
+    time: '連絡後 速やかに',
+    desc: '故人様をご自宅または安置室へお迎えに上がります。ご安置場所のご要望にも柔軟に対応いたします。',
+  },
+  {
+    step: '03',
+    title: '打ち合わせ',
+    time: 'ご搬送後',
+    desc: '式の内容・日程・式場・宗教者のご手配など、詳細を丁寧にお打ち合わせします。費用の明細もこの時点でご確認いただけます。',
+  },
+  {
+    step: '04',
+    title: 'お通夜',
+    time: '通常 翌日',
+    desc: 'ご家族・ご親族でゆっくりとお通夜を執り行います。ご希望に応じてお通夜なしの直葬プランもご選択いただけます。',
+  },
+  {
+    step: '05',
+    title: '告別式・出棺',
+    time: 'お通夜翌日',
+    desc: '告別式にてご参列の皆様とのお別れの時間をお過ごしいただいた後、火葬場へご出棺いたします。',
+  },
+  {
+    step: '06',
+    title: '火葬・ご収骨',
+    time: '告別式後',
+    desc: '火葬後、ご遺骨をお骨壺に収めていただきます。その後、必要に応じて四十九日法要等のご案内も行います。',
+  },
+];
+---
+
+<section class="flow" id="flow">
+  <div class="inner">
+    <p class="section-subtitle">PROCESS</p>
+    <h2 class="section-title">ご葬儀の流れ</h2>
+    <div class="section-divider"></div>
+    <div class="flow-list">
+      {steps.map((s, i) => (
+        <div class="flow-item">
+          <div class="flow-step">
+            <span class="step-num">{s.step}</span>
+            {i < steps.length - 1 && <div class="step-line"></div>}
+          </div>
+          <div class="flow-content">
+            <div class="flow-time">{s.time}</div>
+            <h3 class="flow-title">{s.title}</h3>
+            <p class="flow-desc">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .flow {
+    padding: 6rem 1.5rem;
+    background: var(--color-bg);
+  }
+
+  .inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .flow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-item {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-num {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    width: 1px;
+    flex: 1;
+    min-height: 2rem;
+    background: linear-gradient(to bottom, var(--color-accent), rgba(125,156,131,0.15));
+    margin: 0.5rem 0;
+  }
+
+  .flow-content {
+    padding-top: 0.75rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .flow-time {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .flow-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  .flow-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+  }
+</style>

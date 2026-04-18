@@ -1,0 +1,118 @@
+---
+const items = [
+  { file: '枕経三具足', label: '枕経三具足', desc: 'ご逝去後すぐに設置' },
+  { file: 'ドライアイス', label: 'ドライアイス', desc: '10kgを毎日交換' },
+  { file: '棺', label: '棺', desc: '納棺・ご安置' },
+  { file: '遺影', label: '遺影', desc: '遺影写真の作成' },
+  { file: '位牌', label: '位牌', desc: '白木位牌' },
+  { file: '骨箱', label: '骨箱', desc: '骨壺・骨箱一式' },
+  { file: '受付', label: '受付', desc: '受付・案内サポート' },
+  { file: '司会', label: '司会', desc: '式の司会進行' },
+];
+---
+
+<section class="includes">
+  <div class="inner">
+    <p class="section-subtitle">WHAT'S INCLUDED</p>
+    <h2 class="section-title">セットに含まれるもの</h2>
+    <div class="section-divider"></div>
+    <p class="includes-note">すべてのプランに以下が含まれています。追加費用は一切かかりません。</p>
+    <div class="includes-grid">
+      {items.map(item => (
+        <div class="include-item">
+          <div class="include-icon-wrap">
+            <img
+              src={`/images/icons/${encodeURIComponent(item.file)}.jpg`}
+              alt={item.label}
+              class="include-icon"
+            />
+          </div>
+          <p class="include-label">{item.label}</p>
+          <p class="include-desc">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .includes {
+    padding: 5rem 1.5rem;
+    background: var(--color-bg);
+  }
+
+  .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .includes-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-bottom: 3rem;
+  }
+
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .include-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.2s;
+  }
+
+  .include-item:hover {
+    box-shadow: 0 4px 16px rgba(61, 122, 138, 0.1);
+  }
+
+  .include-icon-wrap {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .include-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .include-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .include-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px) {
+    .includes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .includes-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+</style>

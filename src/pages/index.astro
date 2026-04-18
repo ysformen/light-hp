@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Reasons from '../components/Reasons.astro';
+import Venues from '../components/Venues.astro';
+import Plans from '../components/Plans.astro';
+import Includes from '../components/Includes.astro';
+import Flow from '../components/Flow.astro';
+import Pricing from '../components/Pricing.astro';
+import Reviews from '../components/Reviews.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout>
+  <Hero />
+  <Reasons />
+  <Venues />
+  <Plans />
+  <Includes />
+  <Flow />
+  <Pricing />
+  <Reviews />
+  <FAQ />
+  <Contact />
+</Layout>
+
+<style>
+  /* 固定電話ボタン（モバイル） */
+  @media (max-width: 900px) {
+    main::after {
+      content: '';
+    }
+  }
+</style>

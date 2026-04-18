@@ -1,0 +1,234 @@
+---
+const plans = [
+  {
+    name: '一日葬',
+    nameEn: 'One Day Funeral',
+    price: '195,000',
+    desc: '通夜を行わず、告別式・火葬を一日で執り行うプランです。ご家族の負担を抑えながら、心のこもったお別れができます。',
+    features: [
+      '式場使用料含む',
+      '生花祭壇',
+      '霊柩車手配',
+      '全行程担当者サポート',
+    ],
+    highlight: false,
+  },
+  {
+    name: '一般葬',
+    nameEn: 'General Funeral',
+    price: '275,000',
+    desc: '会社関係・地域の方々を含む、一般的な葬儀のプランです。しっかりとした式典でご縁のある方々にお別れいただけます。',
+    features: [
+      '式場使用料含む',
+      '本格生花祭壇',
+      '霊柩車・バス手配',
+      '受付・案内サポート',
+    ],
+    highlight: true,
+  },
+  {
+    name: '火葬式プラン',
+    nameEn: 'Cremation Plan',
+    price: '55,000',
+    desc: '通夜・告別式を行わず、火葬のみのシンプルなプランです。ご事情に合わせてご選択いただけます。',
+    features: [
+      '安置・搬送',
+      '火葬料含む',
+      '必要書類の手続き',
+      '担当者サポート',
+    ],
+    highlight: false,
+  },
+];
+---
+
+<section class="plans" id="plans">
+  <div class="inner">
+    <p class="section-subtitle">PLANS</p>
+    <h2 class="section-title">プラン案内</h2>
+    <div class="section-divider"></div>
+    <p class="plans-note">※ 表示価格はすべて<strong>税込み</strong>です。斎場費用・火葬料も含まれています。</p>
+    <div class="plans-grid">
+      {plans.map(p => (
+        <div class={`plan-card${p.highlight ? ' highlight' : ''}`}>
+          {p.highlight && <div class="plan-badge">人気No.1</div>}
+          <p class="plan-name-en">{p.nameEn}</p>
+          <h3 class="plan-name">{p.name}</h3>
+          <div class="plan-price">
+            <span class="plan-price-from">税込</span>
+            <span class="plan-price-num">¥{p.price}</span>
+            <span class="plan-price-unit">〜</span>
+          </div>
+          <p class="plan-desc">{p.desc}</p>
+          <ul class="plan-features">
+            {p.features.map(f => (
+              <li><span class="check">✓</span> {f}</li>
+            ))}
+          </ul>
+          <a href="#contact" class={p.highlight ? 'btn-primary' : 'btn-plan-outline'}>
+            このプランで相談する
+          </a>
+        </div>
+      ))}
+    </div>
+    <p class="plans-custom">
+      上記プランはあくまで目安です。ご要望に合わせてカスタマイズも承ります。<br />
+      まずはお気軽にご相談ください。
+    </p>
+  </div>
+</section>
+
+<style>
+  .plans {
+    padding: 6rem 1.5rem;
+    background: var(--color-bg-warm);
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .plans-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .plan-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    position: relative;
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .plan-card.highlight {
+    border: 2px solid var(--color-primary);
+    padding-top: 3rem;
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 1rem;
+    white-space: nowrap;
+  }
+
+  .plan-name-en {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .plan-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .plan-price-from {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .plan-price-num {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    letter-spacing: -0.02em;
+  }
+
+  .plan-price-unit {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .plan-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .plan-features li {
+    font-size: 0.82rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .check {
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .btn-plan-outline {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-plan-outline:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .plans-custom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 2;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  }
+</style>

@@ -1,0 +1,198 @@
+---
+const items = [
+  { category: '基本費用', name: '司会・進行', price: '含む' },
+  { category: '基本費用', name: '祭壇・生花装飾', price: '含む' },
+  { category: '基本費用', name: '棺・骨壺', price: '含む' },
+  { category: '基本費用', name: '霊柩車', price: '含む' },
+  { category: '基本費用', name: '担当者サポート（全行程）', price: '含む' },
+  { category: '斎場費用', name: '式場使用料（公営斎場）', price: '含む' },
+  { category: '斎場費用', name: '火葬料', price: '含む' },
+  { category: '別途費用', name: '宗教者へのお礼（お布施）', price: '実費' },
+  { category: '別途費用', name: '飲食費（通夜振る舞い等）', price: '実費' },
+  { category: '別途費用', name: '返礼品', price: '実費' },
+  { category: '別途費用', name: '遺影写真制作', price: '¥11,000〜' },
+];
+
+const categories = [...new Set(items.map(i => i.category))];
+---
+
+<section class="pricing" id="pricing">
+  <div class="inner">
+    <p class="section-subtitle">PRICING</p>
+    <h2 class="section-title">料金案内</h2>
+    <div class="section-divider"></div>
+
+    <div class="pricing-note">
+      <p>明朗会計を徹底しています。事前にすべての費用をご説明し、追加費用が発生することはありません。</p>
+      <p style="margin-top:0.5rem; font-size:0.8rem;">※ 表示価格はすべて税込みです。</p>
+    </div>
+
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>内容</th>
+            <th>費用</th>
+          </tr>
+        </thead>
+        <tbody>
+          {categories.map(cat => (
+            <>
+              <tr class="category-row">
+                <td colspan="3">{cat}</td>
+              </tr>
+              {items.filter(i => i.category === cat).map(item => (
+                <tr>
+                  <td></td>
+                  <td>{item.name}</td>
+                  <td class={item.price === '含む' ? 'price-included' : item.price === '実費' ? 'price-actual' : 'price-amount'}>
+                    {item.price}
+                  </td>
+                </tr>
+              ))}
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pricing-summary">
+      <div class="summary-card">
+        <p class="summary-label">一般葬プラン</p>
+        <p class="summary-price">¥275,000</p>
+        <p class="summary-note">通夜・告別式・火葬込み</p>
+      </div>
+      <div class="summary-card highlight">
+        <p class="summary-label">一日葬プラン</p>
+        <p class="summary-price">¥195,000</p>
+        <p class="summary-note">告別式・火葬を一日で執り行い</p>
+      </div>
+      <div class="summary-card">
+        <p class="summary-label">火葬式プラン</p>
+        <p class="summary-price">¥55,000</p>
+        <p class="summary-note">シンプルに火葬のみ</p>
+      </div>
+    </div>
+
+    <p class="pricing-cta-text">詳細なお見積りは無料です。お気軽にご相談ください。</p>
+    <div style="text-align:center">
+      <a href="#contact" class="btn-primary">無料でお見積りを依頼する</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: 6rem 1.5rem;
+    background: var(--color-bg-soft);
+  }
+
+  .inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .pricing-note {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 2;
+    margin-bottom: 2.5rem;
+  }
+
+  .pricing-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 3rem;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .pricing-table thead th {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    letter-spacing: 0.08em;
+  }
+
+  .pricing-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-table tbody td {
+    padding: 0.65rem 1rem;
+    color: var(--color-text);
+  }
+
+  .category-row td {
+    background: var(--color-bg-soft);
+    color: var(--color-primary) !important;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+  }
+
+  .price-included { color: var(--color-accent) !important; font-weight: 500; }
+  .price-actual { color: var(--color-text-light) !important; }
+  .price-amount { color: var(--color-primary-dark) !important; font-weight: 500; }
+
+  .pricing-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .summary-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .summary-card.highlight {
+    border-color: var(--color-primary);
+    border-width: 2px;
+  }
+
+  .summary-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .summary-price {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .summary-note {
+    font-size: 0.72rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .pricing-cta-text {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .pricing-summary { grid-template-columns: 1fr; }
+  }
+</style>

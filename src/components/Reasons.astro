@@ -1,0 +1,126 @@
+---
+const reasons = [
+  {
+    icon: null,
+    img: '/images/icons/otera.png',
+    title: 'お施主様の菩提寺で葬儀',
+    desc: 'ご縁のある菩提寺でのお葬式をサポート。慣れ親しんだお寺で、ご住職のもと心のこもったお見送りができます。菩提寺がない場合もご相談ください。',
+  },
+  {
+    icon: null, img: '/images/icons/koei-saijo.png',
+    title: '公営斎場の使用',
+    desc: '藤枝市の公営斎場を活用することで、清潔で広々とした設備をリーズナブルにご利用いただけます。',
+  },
+  {
+    icon: null, img: '/images/icons/ryokin.png',
+    title: '明朗な料金体系',
+    desc: '追加費用が発生しない明朗会計。事前にすべての費用をご説明し、安心してお任せいただけます。',
+  },
+  {
+    icon: '📞', img: null,
+    title: '24時間365日対応',
+    desc: 'いつでもご連絡いただけます。夜間・深夜・休日を問わず、経験豊富なスタッフが迅速に対応いたします。',
+  },
+  {
+    icon: '🤝', img: null,
+    title: '地域密着のサポート',
+    desc: '藤枝市・焼津市・島田市を中心に、地域のしきたりや慣習を尊重した葬儀を執り行います。',
+  },
+];
+---
+
+<section class="reasons" id="reasons">
+  <div class="inner">
+    <p class="section-subtitle">WHY CHOOSE US</p>
+    <h2 class="section-title">らいとが選ばれる理由</h2>
+    <div class="section-divider"></div>
+    <div class="reasons-grid">
+      {reasons.map((r, i) => (
+        <div class="reason-card">
+          <div class="reason-icon">
+            {r.img
+              ? <img src={r.img} alt={r.title} class="reason-img" />
+              : r.icon
+            }
+          </div>
+          <div class="reason-num">0{i + 1}</div>
+          <h3 class="reason-title">{r.title}</h3>
+          <p class="reason-desc">{r.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .reasons {
+    padding: 6rem 1.5rem;
+    background: var(--color-bg);
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .reason-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-top: 3px solid var(--color-accent);
+    position: relative;
+    transition: box-shadow 0.3s;
+  }
+
+  .reason-card:hover {
+    box-shadow: 0 8px 32px rgba(26, 39, 68, 0.1);
+  }
+
+  .reason-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .reason-img {
+    height: 2.5rem;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .reason-num {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .reason-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .reason-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+  }
+
+  @media (max-width: 900px) {
+    .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .reasons-grid { grid-template-columns: 1fr; }
+  }
+</style>

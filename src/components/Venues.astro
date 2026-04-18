@@ -1,0 +1,160 @@
+---
+const venues = [
+  {
+    tag: 'お施主様の菩提寺',
+    name: 'お施主様の菩提寺',
+    desc: 'らいとにご依頼いただいたお施主様の菩提寺で、ご住職のもと丁寧に葬儀を執り行います。慣れ親しんだお寺で、心のこもったお見送りができます。',
+    features: ['ご縁のあるお寺での葬儀', '菩提寺のご住職による読経', '宗派に沿った正式な作法', '菩提寺がない場合もご相談可'],
+  },
+  {
+    tag: '自宅',
+    name: '自宅でのお葬儀',
+    desc: '住み慣れたご自宅で、ゆっくりと最後のお時間をお過ごしいただけます。ご家族だけの静かな雰囲気の中、故人様らしいお見送りが可能です。',
+    features: ['少人数・家族葬に最適', '自宅ならではの温かい雰囲気', '祭壇・設備一式をご用意', 'ご近所への対応もサポート'],
+  },
+  {
+    tag: '公営斎場',
+    name: '志太広域事務組合 星山の苑',
+    desc: '藤枝市・焼津市・島田市が共同運営する公営斎場。市民の方はリーズナブルにご利用いただけます。広々とした式場で、家族葬から一般葬まで幅広く対応可能です。',
+    features: ['収容人数：〜150名', '大型駐車場完備', '火葬場併設', '控室・待合室充実'],
+  },
+];
+---
+
+<section class="venues" id="venues">
+  <div class="inner">
+    <p class="section-subtitle">VENUES</p>
+    <h2 class="section-title">式場案内</h2>
+    <div class="section-divider"></div>
+    <p class="venues-lead">
+      らいとでは、菩提寺・自宅・公営斎場の3つの式場に対応しています。<br />
+      ご要望・ご予算に合わせて最適な式場をご提案いたします。
+    </p>
+    <div class="venues-grid">
+      {venues.map(v => (
+        <div class="venue-card">
+          <div class="venue-tag">{v.tag}</div>
+          <h3 class="venue-name">{v.name}</h3>
+          <p class="venue-desc">{v.desc}</p>
+          <ul class="venue-features">
+            {v.features.map(f => (
+              <li>
+                <span class="check">✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <a href="#contact" class="venue-btn">詳細・見学のご予約</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .venues {
+    padding: 6rem 1.5rem;
+    background: var(--color-bg-soft);
+  }
+
+  .venues .section-title {
+    color: var(--color-primary-dark);
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .venues-lead {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 2;
+    margin-bottom: 3rem;
+  }
+
+  .venues-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .venue-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    padding: 2.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .venue-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 24px rgba(61, 122, 138, 0.1);
+  }
+
+  .venue-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .venue-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  .venue-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .venue-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .venue-features li {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .check {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .venue-btn {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .venue-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .venues-grid { grid-template-columns: 1fr; }
+  }
+</style>

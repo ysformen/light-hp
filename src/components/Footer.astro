@@ -1,0 +1,170 @@
+---
+---
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/images/logo.png" alt="市民葬のらいと" class="footer-logo-img" />
+      <p class="footer-logo-en">LIGHT FUNERAL SERVICE</p>
+      <p class="footer-address">〠426-0071 静岡県藤枝市志太3丁目8-2 2階<br />TEL：050-8895-3811</p>
+      <p class="footer-hours">24時間365日対応</p>
+    </div>
+    <div class="footer-links">
+      <h4>サービス</h4>
+      <ul>
+        <li><a href="#plans">家族葬</a></li>
+        <li><a href="#plans">一般葬</a></li>
+        <li><a href="#plans">直葬・火葬式</a></li>
+        <li><a href="#venues">式場案内</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>ご案内</h4>
+      <ul>
+        <li><a href="#flow">ご葬儀の流れ</a></li>
+        <li><a href="#pricing">料金案内</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <p class="footer-tel-label">24時間・無料相談</p>
+      <a href="tel:050-8895-3811" class="footer-tel">050-8895-3811</a>
+      <a href="#contact" class="btn-outline-footer">メールで相談する</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 らいと葬儀社. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--color-primary-dark);
+    color: #fff;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+  }
+
+  .footer-logo-img {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+    display: block;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  }
+
+  .footer-logo-en {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--color-accent-light);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-address {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-hours {
+    font-size: 0.8rem;
+    color: var(--color-accent-light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links h4 {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(150,181,156,0.3);
+  }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    color: rgba(250, 246, 239, 0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent-light);
+  }
+
+  .footer-tel-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tel {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--color-cream);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .btn-outline-footer {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--color-accent-light);
+    color: var(--color-accent-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-outline-footer:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 1.2rem 1.5rem;
+    font-size: 0.75rem;
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-contact { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
