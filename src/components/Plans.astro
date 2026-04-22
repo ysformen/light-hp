@@ -5,12 +5,7 @@ const plans = [
     nameEn: 'One Day Funeral',
     price: '195,000',
     desc: '通夜を行わず、告別式・火葬を一日で執り行うプランです。ご家族の負担を抑えながら、心のこもったお別れができます。',
-    features: [
-      '式場使用料含む',
-      '生花祭壇',
-      '霊柩車手配',
-      '全行程担当者サポート',
-    ],
+    features: [],
     highlight: false,
   },
   {
@@ -18,12 +13,7 @@ const plans = [
     nameEn: 'General Funeral',
     price: '275,000',
     desc: '会社関係・地域の方々を含む、一般的な葬儀のプランです。しっかりとした式典でご縁のある方々にお別れいただけます。',
-    features: [
-      '式場使用料含む',
-      '本格生花祭壇',
-      '霊柩車・バス手配',
-      '受付・案内サポート',
-    ],
+    features: [],
     highlight: true,
   },
   {
@@ -31,12 +21,7 @@ const plans = [
     nameEn: 'Cremation Plan',
     price: '55,000',
     desc: '通夜・告別式を行わず、火葬のみのシンプルなプランです。ご事情に合わせてご選択いただけます。',
-    features: [
-      '安置・搬送',
-      '火葬料含む',
-      '必要書類の手続き',
-      '担当者サポート',
-    ],
+    features: [],
     highlight: false,
   },
 ];
@@ -51,7 +36,7 @@ const plans = [
     <div class="plans-grid">
       {plans.map(p => (
         <div class={`plan-card${p.highlight ? ' highlight' : ''}`}>
-          {p.highlight && <div class="plan-badge">人気No.1</div>}
+          {p.highlight && <div class="plan-badge">スタンダード</div>}
           <p class="plan-name-en">{p.nameEn}</p>
           <h3 class="plan-name">{p.name}</h3>
           <div class="plan-price">
@@ -65,7 +50,7 @@ const plans = [
               <li><span class="check">✓</span> {f}</li>
             ))}
           </ul>
-          <a href="#contact" class={p.highlight ? 'btn-primary' : 'btn-plan-outline'}>
+          <a href="tel:050-8895-3811" class={p.highlight ? 'btn-primary' : 'btn-plan-outline'}>
             このプランで相談する
           </a>
         </div>

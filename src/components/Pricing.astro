@@ -1,16 +1,20 @@
 ---
 const items = [
-  { category: '基本費用', name: '司会・進行', price: '含む' },
-  { category: '基本費用', name: '祭壇・生花装飾', price: '含む' },
-  { category: '基本費用', name: '棺・骨壺', price: '含む' },
-  { category: '基本費用', name: '霊柩車', price: '含む' },
-  { category: '基本費用', name: '担当者サポート（全行程）', price: '含む' },
-  { category: '斎場費用', name: '式場使用料（公営斎場）', price: '含む' },
-  { category: '斎場費用', name: '火葬料', price: '含む' },
-  { category: '別途費用', name: '宗教者へのお礼（お布施）', price: '実費' },
-  { category: '別途費用', name: '飲食費（通夜振る舞い等）', price: '実費' },
+  { category: '基本費用', name: 'お棺、ご遺影額・加工料含', price: '含む' },
+  { category: '基本費用', name: '企画・運営各スタッフ料', price: '含む' },
+  { category: '基本費用', name: '遺影写真制作', price: '含む' },
+  { category: '基本費用', name: '一回分ドライアイス', price: '含む' },
+  { category: '基本費用', name: '納棺花30本', price: '含む' },
+  { category: '基本費用', name: '火葬手続き代行', price: '含む' },
+  { category: '基本費用', name: '白木位牌塔婆一式', price: '含む' },
+  { category: '基本費用', name: '枕飾り後祭壇', price: '含む' },
+  { category: '基本費用', name: '霊供膳一式', price: '含む' },
+  { category: '基本費用', name: '看板類筆記用具', price: '含む' },
+  { category: '基本費用', name: '法事・相続アフターフォロー', price: '含む' },
+  { category: '別途費用', name: '搬送車・霊柩車', price: '実費' },
   { category: '別途費用', name: '返礼品', price: '実費' },
-  { category: '別途費用', name: '遺影写真制作', price: '¥11,000〜' },
+  { category: '別途費用', name: '弁当・お料理', price: '実費' },
+  { category: '別途費用', name: 'その他オプション', price: '実費' },
 ];
 
 const categories = [...new Set(items.map(i => i.category))];
@@ -59,14 +63,14 @@ const categories = [...new Set(items.map(i => i.category))];
 
     <div class="pricing-summary">
       <div class="summary-card">
-        <p class="summary-label">一般葬プラン</p>
-        <p class="summary-price">¥275,000</p>
-        <p class="summary-note">通夜・告別式・火葬込み</p>
-      </div>
-      <div class="summary-card highlight">
         <p class="summary-label">一日葬プラン</p>
         <p class="summary-price">¥195,000</p>
         <p class="summary-note">告別式・火葬を一日で執り行い</p>
+      </div>
+      <div class="summary-card highlight">
+        <p class="summary-label">一般葬プラン</p>
+        <p class="summary-price">¥275,000</p>
+        <p class="summary-note">通夜・告別式・火葬込み</p>
       </div>
       <div class="summary-card">
         <p class="summary-label">火葬式プラン</p>
@@ -77,7 +81,7 @@ const categories = [...new Set(items.map(i => i.category))];
 
     <p class="pricing-cta-text">詳細なお見積りは無料です。お気軽にご相談ください。</p>
     <div style="text-align:center">
-      <a href="#contact" class="btn-primary">無料でお見積りを依頼する</a>
+      <a href="tel:050-8895-3811" class="btn-primary">無料でお見積りを依頼する</a>
     </div>
   </div>
 </section>
