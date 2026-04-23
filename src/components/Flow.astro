@@ -4,13 +4,14 @@ const steps = [
     step: '01',
     title: 'ご連絡・ご相談',
     time: '24時間対応',
-    desc: 'まずはお電話またはメールにてご連絡ください。経験豊富な担当者が丁寧にご事情をお伺いし、最適なプランをご提案します。',
+    desc: 'まずはお電話にてご連絡ください。経験豊富な担当者が丁寧にご事情をお伺いし、最適なプランをご提案します。',
   },
   {
     step: '02',
     title: 'ご搬送・ご安置',
     time: '連絡後 速やかに',
-    desc: '故人様をご自宅または安置室へお迎えに上がります。ご安置場所のご要望にも柔軟に対応いたします。',
+    desc: '故人様をお迎えに上がります。ご自宅、またはお寺様の安置室にお送りさせていただきます。',
+    note: '※安置スペースのあるご寺院に限る',
   },
   {
     step: '03',
@@ -21,8 +22,8 @@ const steps = [
   {
     step: '04',
     title: 'お通夜',
-    time: '通常 翌日',
-    desc: 'ご家族・ご親族でゆっくりとお通夜を執り行います。ご希望に応じてお通夜なしの直葬プランもご選択いただけます。',
+    time: '通常 翌々日',
+    desc: 'ご家族・ご親族でゆっくりとお通夜を執り行います。ご希望に応じてお通夜なしの火葬式プラン・一日葬プランもご選択いただけます。',
   },
   {
     step: '05',
@@ -55,6 +56,7 @@ const steps = [
             <div class="flow-time">{s.time}</div>
             <h3 class="flow-title">{s.title}</h3>
             <p class="flow-desc">{s.desc}</p>
+            {s.note && <p class="flow-note">{s.note}</p>}
           </div>
         </div>
       ))}
@@ -138,5 +140,12 @@ const steps = [
     font-size: 0.875rem;
     color: var(--color-text-light);
     line-height: 1.9;
+  }
+
+  .flow-note {
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+    margin-top: 0.4rem;
+    opacity: 0.8;
   }
 </style>

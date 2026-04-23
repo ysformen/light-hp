@@ -9,9 +9,10 @@ const plans = [
     highlight: false,
   },
   {
-    name: '一般葬',
+    name: '一般葬・家族葬',
     nameEn: 'General Funeral',
     price: '275,000',
+    specialPrice: '菩提寺特別価格　250,000円（税込）〜',
     desc: '会社関係・地域の方々を含む、一般的な葬儀のプランです。しっかりとした式典でご縁のある方々にお別れいただけます。',
     features: [],
     highlight: true,
@@ -32,7 +33,7 @@ const plans = [
     <p class="section-subtitle">PLANS</p>
     <h2 class="section-title">プラン案内</h2>
     <div class="section-divider"></div>
-    <p class="plans-note">※ 表示価格はすべて<strong>税込み</strong>です。斎場費用・火葬料も含まれています。</p>
+    <p class="plans-note">※ 表示価格はすべて<strong>税込み</strong>です。</p>
     <div class="plans-grid">
       {plans.map(p => (
         <div class={`plan-card${p.highlight ? ' highlight' : ''}`}>
@@ -44,6 +45,7 @@ const plans = [
             <span class="plan-price-num">¥{p.price}</span>
             <span class="plan-price-unit">〜</span>
           </div>
+          {p.specialPrice && <p class="plan-special-price">{p.specialPrice}</p>}
           <p class="plan-desc">{p.desc}</p>
           <ul class="plan-features">
             {p.features.map(f => (
@@ -155,6 +157,13 @@ const plans = [
   .plan-price-unit {
     font-size: 0.9rem;
     color: var(--color-text-light);
+  }
+
+  .plan-special-price {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
   }
 
   .plan-desc {

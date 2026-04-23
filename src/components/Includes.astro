@@ -1,13 +1,17 @@
 ---
 const items = [
-  { file: '枕経三具足', label: '枕経三具足', desc: 'ご逝去後すぐに設置' },
-  { file: 'ドライアイス', label: 'ドライアイス', desc: '10kgを毎日交換' },
-  { file: '棺', label: '棺', desc: '納棺・ご安置' },
-  { file: '遺影', label: '遺影', desc: '遺影写真の作成' },
-  { file: '位牌', label: '位牌', desc: '白木位牌' },
-  { file: '骨箱', label: '骨箱', desc: '骨壺・骨箱一式' },
-  { file: '受付', label: '受付', desc: '受付・案内サポート' },
-  { file: '司会', label: '司会', desc: '式の司会進行' },
+  { file: '枕飾り後祭壇', label: '枕飾り・後祭壇', desc: '', ext: 'png' },
+  { file: 'ドライアイス', label: '一回分のドライアイス', desc: '', ext: 'png' },
+  { file: '棺', label: '棺一式', desc: '納棺・ご安置', ext: 'png' },
+  { file: '遺影', label: '遺影', desc: '遺影写真の作成（額付き）', ext: 'png' },
+  { file: '位牌', label: '位牌', desc: '白木位牌<br>塔婆一式', ext: 'png' },
+  { file: 'お骨甕覆いセット', label: 'お骨甕覆いセット', desc: '', ext: 'png' },
+  { file: '納棺花30本', label: '納棺花30本', desc: '', ext: 'png' },
+  { file: '企画・運営各スタッフ料', label: '企画・運営各スタッフ料', desc: '', scale: 1.4 },
+  { file: '火葬手続き代行', label: '火葬手続き代行', desc: '', ext: 'png' },
+  { file: '霊供膳一式', label: '霊供膳一式', desc: '', ext: 'png' },
+  { file: '看板類・筆記用具', label: '看板類・筆記用具', desc: '' },
+  { file: '法事・相続・アフターフォロー', label: '法事・相続・アフターフォロー', desc: '', ext: 'png' },
 ];
 ---
 
@@ -16,19 +20,20 @@ const items = [
     <p class="section-subtitle">WHAT'S INCLUDED</p>
     <h2 class="section-title">セットに含まれるもの</h2>
     <div class="section-divider"></div>
-    <p class="includes-note">すべてのプランに以下が含まれています。追加費用は一切かかりません。</p>
+    <p class="includes-note">火葬式プランを除く全プランで、以下をすべてご用意しています。追加費用は一切かかりません。</p>
     <div class="includes-grid">
       {items.map(item => (
         <div class="include-item">
           <div class="include-icon-wrap">
             <img
-              src={`/images/icons/${encodeURIComponent(item.file)}.jpg`}
+              src={`/images/icons/${encodeURIComponent(item.file)}.${item.ext ?? 'jpg'}`}
               alt={item.label}
               class="include-icon"
+              style={item.scale ? `transform: scale(${item.scale})` : ''}
             />
           </div>
           <p class="include-label">{item.label}</p>
-          <p class="include-desc">{item.desc}</p>
+          <p class="include-desc" set:html={item.desc} />
         </div>
       ))}
     </div>
